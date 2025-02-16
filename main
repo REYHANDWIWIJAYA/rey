@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untuk [Nama Perempuan]</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #fce4ec;
+        }
+        h1 {
+            color: #e91e63;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .heart {
+            font-size: 40px;
+            color: #e91e63;
+            animation: heartbeat 1s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .button {
+            background-color: #e91e63;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #pesan-akhir {
+            display: none;
+            margin-top: 30px;
+            font-size: 24px;
+            color: #e91e63;
+        }
+        #tombol-tidak {
+            position: absolute;
+            background-color: #e91e63;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hai, [pute]!</h1>
+    <p>Aku punya sesuatu yang ingin aku katakan...</p>
+    <p>Sejak pertama aku memilihmu menjadi perempuan terbaik di hidupku</p>
+    <p>aku merasa kaulah yang terbaik dari semua perempuan yang aku dapati <span class="heart"></span></p>
+    <p>Maukah kamu menjadi bagian dari hidupku?</p>
+    <button class="button" onclick="tampilkanPesan()">Ya, tentu saja!</button>
+    <button id="tombol-tidak">Tidak</button>
+    <p id="pesan-akhir">yeyyyy,kamu sekarang bagian dari hidupku <span class="heart"></span></p>
+
+    <script>
+        function tampilkanPesan() {
+            document.getElementById("pesan-akhir").style.display = "block";
+            document.querySelector(".button").style.display = "none";
+            document.getElementById("tombol-tidak").style.display = "none";
+        }
+
+        const tombolTidak = document.getElementById("tombol-tidak");
+
+        tombolTidak.addEventListener("mouseover", function() {
+            pindahkanTombol();
+        });
+
+        function pindahkanTombol() {
+            const lebarWindow = window.innerWidth - tombolTidak.offsetWidth;
+            const tinggiWindow = window.innerHeight - tombolTidak.offsetHeight;
+
+            const posisiX = Math.floor(Math.random() * lebarWindow);
+            const posisiY = Math.floor(Math.random() * tinggiWindow);
+
+            tombolTidak.style.left = posisiX + "px";
+            tombolTidak.style.top = posisiY + "px";
+        }
+    </script>
+</body>
+</html>
